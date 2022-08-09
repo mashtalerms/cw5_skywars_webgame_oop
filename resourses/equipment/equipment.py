@@ -12,7 +12,7 @@ class Equipment:
     """Base equipment instance"""
 
     def __init__(self):
-        self.equipment = self._create_equipment_data()
+        self.equipment: EquipmentData = self._create_equipment_data()
 
     def _create_equipment_data(self) -> EquipmentData:
         data = read_data_from_json()

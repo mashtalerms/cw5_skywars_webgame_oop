@@ -4,7 +4,7 @@ from random import randint
 
 class EnemyUnit(BaseUnit):
 
-    def hit(self, target: BaseUnit):
+    def hit(self, target: BaseUnit) -> str:
         """Random hit for computer unit"""
         if not self.is_skill_used:
             random_chance = randint(0, 10)

@@ -12,13 +12,13 @@ class BaseUnit(ABC):
     """Base unit instance"""
 
     def __init__(self, name: str, unit_class: UnitClass, weapon: Weapon, armor: Armor):
-        self.name = name
-        self.unit_class = unit_class
-        self.health_points_ = unit_class.max_health
-        self.stamina_points_ = unit_class.max_stamina
-        self.weapon = weapon
-        self.armor = armor
-        self.is_skill_used = False
+        self.name: str = name
+        self.unit_class: UnitClass = unit_class
+        self.health_points_: float = unit_class.max_health
+        self.stamina_points_: float = unit_class.max_stamina
+        self.weapon: Weapon = weapon
+        self.armor: Armor = armor
+        self.is_skill_used: bool = False
 
     @property
     def health_points(self) -> float:
@@ -55,7 +55,7 @@ class BaseUnit(ABC):
 
     def use_skill(self, target: BaseUnit) -> str:
         if self.is_skill_used:
-            return "Навык использован."
+            return "Навык уже использован!"
         self.is_skill_used = True
         return self.unit_class.skill.use(user=self, target=target)
 

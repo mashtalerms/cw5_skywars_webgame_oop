@@ -12,13 +12,13 @@ class Arena(metaclass=BaseSingleton):
     is_game_on: bool = False
     battle_result: str = ""
 
-    def start_game(self, player: BaseUnit, enemy: BaseUnit):
-        self.player = player
-        self.enemy = enemy
-        self.is_game_on = True
+    def start_game(self, player: BaseUnit, enemy: BaseUnit) -> str:
+        self.player: BaseUnit = player
+        self.enemy: BaseUnit = enemy
+        self.is_game_on: bool = True
         return "Битва началась"
 
-    def _check_players_hp(self):
+    def _check_players_hp(self) -> bool:
 
         if self.player.health_points_ > 0 and self.enemy.health_points_ > 0:
             return True
@@ -35,7 +35,7 @@ class Arena(metaclass=BaseSingleton):
         self.end_game()
         return False
 
-    def _stamina_regeneration(self):
+    def _stamina_regeneration(self) -> None:
         player_stamina_regen = self.STAMINA_PER_ROUND * self.player.unit_class.stamina_modifier
         enemy_stamina_regen = self.STAMINA_PER_ROUND * self.enemy.unit_class.stamina_modifier
 
@@ -52,7 +52,7 @@ class Arena(metaclass=BaseSingleton):
         player_result = self.player.hit(target=self.enemy)
         return player_result + " " + self.next_turn()
 
-    def player_use_skill(self):
+    def player_use_skill(self) -> str:
         player_result = self.player.use_skill(target=self.enemy)
         return player_result + " " + self.next_turn()
 

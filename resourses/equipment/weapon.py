@@ -3,7 +3,6 @@ import random
 import marshmallow
 
 from dataclasses import dataclass
-from random import uniform
 import marshmallow_dataclass
 
 
