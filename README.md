@@ -16,6 +16,6 @@ Web game in the style of turn-based battle
 ## Development local configuration ##
 1) Create venv
 2) Install dependencies
-   - `pip install -r requirements.dev.txt`
+   - `pip install -r requirements.txt`
 3) Run server 
    - `run flask run`
